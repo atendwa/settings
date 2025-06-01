@@ -27,7 +27,7 @@ trait HasConsoleSettingsInputFields
                     }
 
                     return match ($value) {
-                        'array' => str($value)->explode(',')->map(fn (string $value): string => trim($value))->filter()->toJson(),
+                        'array' => str($value)->explode(',')->map(fn (string $value): string => mb_trim($value))->filter()->toJson(),
                         'date' => Carbon::createFromTimestamp(Carbon::parse($value)->getTimestamp())->format('Y-m-d'),
                         'time' => Carbon::createFromTimestamp(Carbon::parse($value)->getTimestamp())->format('H:i:s'),
                         default => $value,

@@ -19,7 +19,7 @@ class SettingsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/settings.php', 'settings');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/settings.php', 'settings');
 
         $this->app->singleton('atendwa-settings', fn (): Settings => new Settings());
 
@@ -28,24 +28,24 @@ class SettingsServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
                 CreateSetting::class, ShowSetting::class, InstallSettings::class,
-                ShowSettingGroup::class, UpdateSetting::class
+                ShowSettingGroup::class, UpdateSetting::class,
             ]);
 
             $this->publishes(
                 [
-                    __DIR__.'/../../database/migrations' => database_path('migrations'),
+                    __DIR__ . '/../../database/migrations' => database_path('migrations'),
                 ],
                 'migrations'
             );
 
             $this->publishes(
                 [
-                    __DIR__.'/../../config/settings.php' => config_path('settings.php'),
+                    __DIR__ . '/../../config/settings.php' => config_path('settings.php'),
                 ],
                 'config'
             );
