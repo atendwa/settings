@@ -1,24 +1,26 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "atendwa/settings",
+    "description": "This is my package settings",
     "keywords": [
-        ":vendor_name",
+        "atendwa",
         "laravel",
-        ":package_slug"
+        "settings"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/atendwa/settings",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "atendwa",
+            "email": "tendwa.am@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0||^12.0"
+        "php": "^8.2",
+        "atendwa/filakit": "^1.0",
+        "atendwa/support": "^1.0",
+        "illuminate/contracts": "^10.0||^11.0||^12.0",
+        "rector/rector": "^2.0"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,14 +37,15 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
-        }
+            "Atendwa\\Settings\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Atendwa\\Settings\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -63,10 +66,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Atendwa\\Settings\\Providers\\SettingsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Settings": "Atendwa\\Settings\\Facades\\Settings"
             }
         }
     },
