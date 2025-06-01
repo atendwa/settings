@@ -6,10 +6,14 @@ namespace Atendwa\Settings\Filament\Resources;
 
 use Atendwa\Filakit\Concerns\CustomizesFilamentResource;
 use Atendwa\Filakit\Resource;
+use Atendwa\Settings\Filament\Resources\SettingResource\Pages\EditSetting;
+use Atendwa\Settings\Filament\Resources\SettingResource\Pages\ListSettings;
+use Atendwa\Settings\Filament\Resources\SettingResource\Pages\ViewSetting;
 use Atendwa\Settings\Models\Setting;
 use Filament\Clusters\Cluster;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -111,5 +115,17 @@ class SettingResource extends Resource
         ]);
 
         return self::customTable();
+    }
+
+    /**
+     * @return PageRegistration[]
+     */
+    public static function getPages(): array
+    {
+        return [
+          'index' => ListSettings::route('/'),
+          'view' => ViewSetting::route('/view/{record}'),
+          'update' => EditSetting::route('/update/{record}'),
+        ];
     }
 }
