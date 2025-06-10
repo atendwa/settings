@@ -7,6 +7,7 @@ namespace Atendwa\Settings\Filament\Resources\SettingResource\Pages;
 use Atendwa\Filakit\Pages\ListRecords;
 use Atendwa\Settings\Filament\Resources\SettingResource;
 
-class ListSettings extends ListRecords {
+class ListSettings extends ListRecords
+{
     protected static string $resource = SettingResource::class;
 }
