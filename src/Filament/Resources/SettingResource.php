@@ -30,12 +30,6 @@ class SettingResource extends Resource
     public static function getCluster(): ?string
     {
         try {
-            $panelCluster = filament(self::$pluginName)->getCluster();
-
-            if (filled($panelCluster)) {
-                return $panelCluster;
-            }
-
             $cluster = app(asString(config('settings.resource.cluster')));
 
             return match ($cluster instanceof Cluster) {
@@ -46,6 +40,7 @@ class SettingResource extends Resource
             return null;
         }
     }
+
 
     public static function getNavigationSort(): ?int
     {
