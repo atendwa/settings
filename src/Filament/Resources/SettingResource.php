@@ -41,7 +41,6 @@ class SettingResource extends Resource
         }
     }
 
-
     public static function getNavigationSort(): ?int
     {
         return asInteger(config('settings.resource.sort'));
