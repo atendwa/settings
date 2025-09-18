@@ -11,5 +11,5 @@ return [
         'sort' => 0,
         'record_title_attribute' => 'key',
     ],
-    'block' => false,
+    'block' => env('SETTINGS_BLOCK', false),
 ];
